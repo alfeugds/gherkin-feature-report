@@ -23,7 +23,7 @@ async function getCsv(dir){
     let result = `${CSV_HEADER}\n`
 
     const globPromise = new Promise((resolve, reject) => {
-        glob("test/test-data/**/*.feature", (er, files) => {
+        glob(`${dir}/**/*.feature`, (er, files) => {
             files.forEach( inputFile => {
                 result += getCsvFromFeature(inputFile)
             })

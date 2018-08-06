@@ -4,7 +4,7 @@ describe('Feature Report', () => {
         const featureReport = require('../feature-report')
         const dir = 'test/test-data'
         //when
-        const csv = await featureReport.getCsv()
+        const csv = await featureReport.getCsv(dir)
 
         //then
         const expectedCsv = 
@@ -12,7 +12,7 @@ describe('Feature Report', () => {
 "test/test-data/features/some-features/test1.feature", "Testing Feature", "Wilson fails to post to somebody else's blog", "@manual"`
         expect(csv).toContain(expectedCsv)
         done()
-        
+
     })
 
     test('Returns a csv from a feature', () => {
