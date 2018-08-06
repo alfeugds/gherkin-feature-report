@@ -13,7 +13,8 @@ module.exports = {
         let m = scenariosRegex.exec(featureText)
         while (m != null){
             let scenario = {
-                name: m[2]
+                name: m[2],
+                tags: []
             }
             if(m[1])
                 scenario.tags = m[1].split(' ').map(t => t.replace('\r',''))

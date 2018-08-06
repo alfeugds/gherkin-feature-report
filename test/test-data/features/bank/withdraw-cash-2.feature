@@ -45,3 +45,14 @@ Feature: Withdraw Cash 2 Test Feature
      | Requested Amount | Dispensed Amount |
      | $200             | $200             |
      | $900             |   $0             |
+  
+  @withdraw @pin @author
+  Scenario: Some "scenario" with double quotes and decimal 2,500.30 value
+    This scenario checks whether the Withdraw Cash feature
+    has any security checks in place before dispensing
+    the cash to the user.
+
+    Given I did not input my correct PIN
+     When I try to withdraw $200 from my account
+     Then the ATM should display "You did not input the correct PIN"
+      And the ATM should not dispense any amount
